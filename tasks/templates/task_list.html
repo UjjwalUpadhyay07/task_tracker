@@ -1,0 +1,11 @@
+<h1>Task Tracker</h1>
+<a href="{% url 'add_task' %}">Add Task</a>
+<ul>
+  {% for task in tasks %}
+    <li>
+      <b>{{ task.title }}</b><br>{{ task.description }}<br> - {% if task.completed %}✅{% else %}❌{% endif %}
+      <a href="{% url 'toggle_task' task.id %}">Toggle</a>
+      <a href="{% url 'delete_task' task.id %}">Delete</a>
+    </li>
+  {% endfor %}
+</ul>
